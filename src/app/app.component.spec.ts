@@ -1,6 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+declare const describe: (description: string, specDefinitions: () => void) => void;
+declare const beforeEach: (action: () => void | Promise<void>) => void;
+declare const it: (description: string, test: () => void) => void;
+declare const expect: (actual: unknown) => {
+  toBeTruthy(): void;
+  toEqual(expected: unknown): void;
+  toContain(expected: string): void;
+};
+
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
