@@ -1,38 +1,43 @@
+/// <reference types="jasmine" />
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-declare const describe: (description: string, specDefinitions: () => void) => void;
-declare const beforeEach: (action: () => void | Promise<void>) => void;
-declare const it: (description: string, test: () => void) => void;
-declare const expect: (actual: unknown) => {
-  toBeTruthy(): void;
-  toEqual(expected: unknown): void;
-  toContain(expected: string): void;
-};
-
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [AppComponent]
+        }).compileComponents();
+    });
 
-  it(`should have the 'AngularApp2' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('AngularApp2');
-  });
+    // Test 1: Verify that the application is created.
+    it('should create the app', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, AngularApp2');
-  });
+        expect(app).toBeTruthy();
+    });
+
+    // Test 2: Verify the application title.
+    it('should have the Daily Focus Tracker title', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
+
+        expect(app.title).toEqual('Daily Focus Tracker');
+    });
+
+    // Test 3: Verify that the main components render.
+    it('should render the task tracker components', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+
+        fixture.detectChanges();
+
+        const compiled = fixture.nativeElement as HTMLElement;
+
+        expect(compiled.querySelector('app-task-form')).toBeTruthy();
+        expect(compiled.querySelector('app-task-list')).toBeTruthy();
+        expect(compiled.querySelector('app-task-summary')).toBeTruthy();
+    });
+
 });
+
