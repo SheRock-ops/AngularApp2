@@ -1,0 +1,185 @@
+
+/* =========================================
+   APPLICATION HEADER
+========================================= */
+
+.dashboard-header {
+    background: linear-gradient(135deg, #103c35, #24745d);
+    border-bottom: 5px solid #d9b66f;
+    padding: 24px 30px;
+}
+
+.header-content {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.brand strong {
+    color: #d9b66f;
+}
+
+.brand-icon {
+    color: #d9b66f;
+    font-size: 30px;
+}
+
+.header-badge {
+    padding: 10px 15px;
+    border: 1px solid rgba(217, 182, 111, 0.5);
+    border-radius: 25px;
+    color: #f1dca8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================
+   MAIN DASHBOARD
+========================================= */
+
+.dashboard-main {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px 25px 70px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.welcome-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #a47d35;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.welcome-section h1 {
+    margin: 0 0 15px;
+    color: #103c35;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.welcome-section h1 span {
+    color: #b08a46;
+}
+
+.welcome-section p {
+    max-width: 650px;
+    margin: 0;
+    color: #647b70;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   DASHBOARD GRID
+========================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.form-column,
+.list-column {
+    min-width: 0;
+}
+
+/* =========================================
+   APPLICATION FOOTER
+========================================= */
+
+.dashboard-footer {
+    padding: 25px 20px;
+    background: #103c35;
+    border-top: 4px solid #d9b66f;
+    text-align: center;
+}
+
+.dashboard-footer p {
+    margin: 6px 0;
+    color: #e4f0e9;
+    font-size: 13px;
+}
+
+.dashboard-footer p:last-child {
+    color: #d9b66f;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-section h1 {
+        font-size: 38px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-header {
+        padding: 20px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand {
+        font-size: 19px;
+    }
+
+    .header-badge {
+        font-size: 10px;
+    }
+
+    .dashboard-main {
+        padding: 30px 15px 50px;
+    }
+
+    .welcome-section h1 {
+        font-size: 32px;
+    }
+
+    .welcome-section p {
+        font-size: 14px;
+    }
+
+}

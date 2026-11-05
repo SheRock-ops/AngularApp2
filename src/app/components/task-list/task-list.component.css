@@ -1,0 +1,254 @@
+
+/* =========================================
+   TASK LIST CARD
+========================================= */
+
+.task-list-card {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 18px;
+    border: 1px solid #e0e8df;
+    box-shadow: 0 12px 30px rgba(16, 60, 53, 0.08);
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a47d35;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 0 0 8px;
+    color: #103c35;
+    font-size: 26px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #647b70;
+    font-size: 14px;
+}
+
+/* =========================================
+   TASK FILTER BUTTONS
+========================================= */
+
+.task-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.task-filters button {
+    padding: 10px 18px;
+    border: 1px solid #dce7dc;
+    border-radius: 8px;
+    background: #f5f7f2;
+    color: #24443c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.task-filters button:hover {
+    border-color: #24745d;
+    color: #24745d;
+}
+
+.task-filters button.active {
+    background: #103c35;
+    border-color: #103c35;
+    color: #ffffff;
+}
+
+/* =========================================
+   TASK ITEMS
+========================================= */
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: #f8faf6;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(16, 60, 53, 0.04);
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 60, 53, 0.1);
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-title-row input {
+    width: 18px;
+    height: 18px;
+    accent-color: #24745d;
+    cursor: pointer;
+}
+
+.task-title-row label {
+    color: #103c35;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.task-description {
+    margin: 12px 0;
+    color: #647b70;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   TASK PRIORITY AND DUE DATE
+========================================= */
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.priority-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.priority-badge.high {
+    background: #f9e8e5;
+    color: #a34439;
+}
+
+.priority-badge.medium {
+    background: #f8efd9;
+    color: #886522;
+}
+
+.priority-badge.low {
+    background: #e0f1e9;
+    color: #24745d;
+}
+
+.due-date {
+    color: #647b70;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================
+   COMPLETED TASKS
+========================================= */
+
+.completed-task .task-title-row label {
+    text-decoration: line-through;
+    color: #82968a;
+}
+
+.completed-task .task-description {
+    text-decoration: line-through;
+}
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.delete-btn {
+    padding: 9px 14px;
+    border: 1px solid #e9c9c3;
+    border-radius: 8px;
+    background: #fff5f3;
+    color: #a34439;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #a34439;
+    color: #ffffff;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    padding: 35px 20px;
+    text-align: center;
+    border: 1px dashed #dce7dc;
+    border-radius: 12px;
+    background: #f8faf6;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+    color: #103c35;
+}
+
+.empty-state p {
+    margin: 0;
+    color: #647b70;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .task-list-card {
+        padding: 22px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .task-item {
+        flex-direction: column;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+
+}

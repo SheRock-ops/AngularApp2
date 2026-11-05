@@ -1,0 +1,69 @@
+
+<section class="summary-section">
+
+    <!-- Section heading -->
+    <div class="section-heading">
+        <span class="section-label">YOUR PRODUCTIVITY</span>
+        <h2>Daily Focus Overview</h2>
+        <p>Every completed task brings you closer to your goals.</p>
+    </div>
+
+    <!-- Subscribe to live task statistics -->
+    <ng-container *ngIf="summary$ | async as summary">
+
+        <!-- Summary cards -->
+        <div class="summary-grid">
+
+            <div class="summary-card total-card">
+                <span class="card-label">Total Tasks</span>
+                <h3>{{ summary.total }}</h3>
+                <p>Tasks on your list</p>
+            </div>
+
+            <div class="summary-card completed-card">
+                <span class="card-label">Completed</span>
+                <h3>{{ summary.completed }}</h3>
+                <p>Tasks accomplished</p>
+            </div>
+
+            <div class="summary-card pending-card">
+                <span class="card-label">Pending</span>
+                <h3>{{ summary.pending }}</h3>
+                <p>Tasks remaining</p>
+            </div>
+
+        </div>
+
+        <!-- Completion progress -->
+        <div class="progress-card">
+
+            <div class="progress-heading">
+                <h3>Overall Progress</h3>
+                <span>{{ summary.progress }}%</span>
+            </div>
+
+            <div
+                class="progress-track"
+                role="progressbar"
+                [attr.aria-valuenow]="summary.progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Task completion progress"
+            >
+                <div
+                    class="progress-fill"
+                    [style.width.%]="summary.progress"
+                ></div>
+            </div>
+
+            <p>
+                {{ summary.completed }} of
+                {{ summary.total }} tasks completed
+            </p>
+
+        </div>
+
+    </ng-container>
+
+</section>
+

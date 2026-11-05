@@ -1,0 +1,128 @@
+
+/* =========================================
+   TASK FORM CARD
+========================================= */
+
+.task-form-card {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 18px;
+    border: 1px solid #e0e8df;
+    box-shadow: 0 12px 30px rgba(16, 60, 53, 0.08);
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a47d35;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 0 0 8px;
+    color: #103c35;
+    font-size: 26px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #647b70;
+    font-size: 14px;
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    color: #24443c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #dce7dc;
+    border-radius: 10px;
+    background: #f5f7f2;
+    color: #24443c;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #24745d;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(36, 116, 93, 0.15);
+}
+
+/* =========================================
+   ADD TASK BUTTON
+========================================= */
+
+.add-task-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #103c35, #24745d);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-task-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #24745d, #103c35);
+    box-shadow: 0 8px 20px rgba(16, 60, 53, 0.25);
+}
+
+.add-task-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+    .task-form-card {
+        padding: 22px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+}

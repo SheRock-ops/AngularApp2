@@ -1,0 +1,127 @@
+
+<!-- =========================================
+     TASK LIST CARD
+========================================= -->
+
+<section class="task-list-card">
+
+    <!-- Section heading -->
+    <div class="section-heading">
+        <span class="section-label">STAY ON TRACK</span>
+        <h2>My Daily Tasks</h2>
+        <p>Manage your priorities and celebrate your progress.</p>
+    </div>
+
+    <!-- Task filters -->
+    <div class="task-filters">
+
+        <button
+            type="button"
+            [class.active]="selectedFilter === 'All'"
+            (click)="selectedFilter = 'All'"
+        >
+            All Tasks
+        </button>
+
+        <button
+            type="button"
+            [class.active]="selectedFilter === 'Pending'"
+            (click)="selectedFilter = 'Pending'"
+        >
+            Pending
+        </button>
+
+        <button
+            type="button"
+            [class.active]="selectedFilter === 'Completed'"
+            (click)="selectedFilter = 'Completed'"
+        >
+            Completed
+        </button>
+
+    </div>
+
+    <!-- Subscribe to task updates with Angular's async pipe -->
+    <ng-container *ngIf="tasks$ | async as tasks">
+
+        <div class="task-container">
+
+            <div
+                *ngFor="let task of filterTasks(tasks)"
+                class="task-item"
+                appPriorityHighlight
+                [priority]="task.priority"
+                [completed]="task.completed"
+                [class.completed-task]="task.completed"
+            >
+
+                <div class="task-content">
+
+                    <!-- Task title and completion checkbox -->
+                    <div class="task-title-row">
+
+                        <input
+                            type="checkbox"
+                            [id]="'task-' + task.id"
+                            [checked]="task.completed"
+                            (change)="toggleCompletion(task.id)"
+                        >
+
+                        <label [for]="'task-' + task.id">
+                            {{ task.title }}
+                        </label>
+
+                    </div>
+
+                    <!-- Custom truncate pipe -->
+                    <p class="task-description">
+                        {{ task.description | truncate:100 }}
+                    </p>
+
+                    <!-- Task information -->
+                    <div class="task-meta">
+
+                        <span
+                            class="priority-badge"
+                            [ngClass]="task.priority.toLowerCase()"
+                        >
+                            {{ task.priority }} Priority
+                        </span>
+
+                        <span
+                            *ngIf="task.dueDate"
+                            class="due-date"
+                        >
+                            Due: {{ task.dueDate | date:'mediumDate' }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- Delete button -->
+                <button
+                    type="button"
+                    class="delete-btn"
+                    (click)="deleteTask(task.id)"
+                    [attr.aria-label]="'Delete ' + task.title"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+            <!-- Empty filtered list -->
+            <div
+                class="empty-state"
+                *ngIf="filterTasks(tasks).length === 0"
+            >
+                <h3>No tasks to display</h3>
+                <p>Add a new task or choose another filter.</p>
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</section>
